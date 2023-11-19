@@ -1,0 +1,161 @@
+<div class="workers-global">
+
+  <h2>Activitées possibles :</h2>
+
+  <div class="workers-global-section">
+
+    <div class="Xtreme card">
+      <h3>Xtreme</h3>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="!isWorking(worker.work_end) && worker.account_id === 'Xtreme' && worker.worker === 'worker_main'"><div class="builderMain"></div>
+          <p>{{ worker.worker_id }}</p>
+
+          <label for="days">context:</label>
+          <input type="text" id="context" name="context" [(ngModel)]="worker.context" placeholder="rien">
+
+          <label for="days">Jours:</label>
+          <input type="number" id="days" name="days" min="0" [(ngModel)]="worker.days" placeholder="0" [defaultValue]="0">
+
+          <label for="hours">Heures:</label>
+          <input type="number" id="hours" name="hours" min="0" max="23" [(ngModel)]="worker.hours" placeholder="0" [defaultValue]="0">
+
+          <label for="minutes">Minutes:</label>
+          <input type="number" id="minutes" name="minutes" min="0" max="59" [(ngModel)]="worker.minutes" placeholder="0" [defaultValue]="0">
+
+          <button (click)="updateWorkerDetails(worker)">Mettre à jour</button>
+        </div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="!isWorking(worker.work_end) && worker.account_id === 'Xtreme' && worker.worker === 'lab_main'"><div class="labMain"></div>
+
+        </div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="!isWorking(worker.work_end) && worker.account_id === 'Xtreme' && worker.worker === 'animals_main'"><div class="petMain"></div>
+
+        </div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="!isWorking(worker.work_end) && worker.account_id === 'Xtreme' && worker.worker === 'worker_builder'"><div class="builderBuilder"></div>
+
+        </div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="!isWorking(worker.work_end) && worker.account_id === 'Xtreme' && worker.worker === 'lab_builder'"><div class="labBuilder"></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Activitées en cours :</h2>
+
+  <div class="workers-global-section">
+
+    <div class="Xtreme card">
+      <h3>Xtreme</h3>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'Xtreme' && worker.worker === 'worker_main'"><div class="builderMain"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'Xtreme' && worker.worker === 'lab_main'"><div class="labMain"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'Xtreme' && worker.worker === 'animals_main'"><div class="petMain"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'Xtreme' && worker.worker === 'worker_builder'"><div class="builderBuilder"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'Xtreme' && worker.worker === 'lab_builder'"><div class="labBuilder"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+    </div>
+
+    <div class="X/treme card">
+      <h3>X/treme</h3>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'X/treme' && worker.worker === 'worker_main'"><div class="builderMain"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'X/treme' && worker.worker === 'lab_main'"><div class="labMain"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'X/treme' && worker.worker === 'animals_main'"><div class="petMain"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'X/treme' && worker.worker === 'worker_builder'"><div class="builderBuilder"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'X/treme' && worker.worker === 'lab_builder'"><div class="labBuilder"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+    </div>
+
+    <div class="X.treme card">
+      <h3>X.treme</h3>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'X.treme' && worker.worker === 'worker_main'"><div class="builderMain"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'X.treme' && worker.worker === 'lab_main'"><div class="labMain"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'X.treme' && worker.worker === 'animals_main'"><div class="petMain"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'X.treme' && worker.worker === 'worker_builder'"><div class="builderBuilder"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'X.treme' && worker.worker === 'lab_builder'"><div class="labBuilder"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+    </div>
+
+    <div class="X:treme card">
+      <h3>X:treme</h3>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'X:treme' && worker.worker === 'worker_main'"><div class="builderMain"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'X:treme' && worker.worker === 'lab_main'"><div class="labMain"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'X:treme' && worker.worker === 'animals_main'"><div class="petMain"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'X:treme' && worker.worker === 'worker_builder'"><div class="builderBuilder"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'X:treme' && worker.worker === 'lab_builder'"><div class="labBuilder"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+    </div>
+
+    <div class="X-treme card">
+      <h3>X-treme</h3>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'X-treme' && worker.worker === 'worker_main'"><div class="builderMain"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'X-treme' && worker.worker === 'lab_main'"><div class="labMain"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'X-treme' && worker.worker === 'animals_main'"><div class="petMain"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'X-treme' && worker.worker === 'worker_builder'"><div class="builderBuilder"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+      <div *ngFor="let worker of workers.data">
+        <div class="oneLine" *ngIf="isWorking(worker.work_end) && worker.account_id === 'X-treme' && worker.worker === 'lab_builder'"><div class="labBuilder"></div><p>{{ worker.work_context }} <strong>Finit le :</strong> {{ formatDateTime(worker.work_end) }} <strong>Dans :</strong> {{ calculateTimeBeforeEnd(worker.work_end) }}</p></div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!--    <div *ngFor="let worker of workers.data">-->
+  <!--      Worker ID: {{ worker.worker_id }}-->
+  <!--      Account ID: {{ worker.account_id }}-->
+  <!--      Worker Type: {{ worker.worker }}-->
+  <!--      Worker Type: {{ worker.work_end }}-->
+  <!--      Worker Type: {{ worker.work_context }}-->
+  <!--    </div>-->
+
+</div>
