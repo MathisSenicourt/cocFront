@@ -64,7 +64,7 @@ export class WorkersComponent {
 
   updateWorkerDetails(worker: any): void {
     const { days, hours, minutes } = worker;
-    console.log(worker)
+    console.log("worker = "+worker)
     const newWorkEnd = this.calculateNewWorkEnd(days, hours, minutes);
     const newWorkContext = worker.context;  // Ajoutez ceci si vous avez également un champ 'context'
 
@@ -93,12 +93,30 @@ export class WorkersComponent {
     newWorkEnd.setHours(newWorkEnd.getHours() + hours);
     newWorkEnd.setMinutes(newWorkEnd.getMinutes() + minutes);
 
-    // Formater la nouvelle date sous forme de chaîne ISO
-    const isoString = newWorkEnd.toISOString();
+    // Formater la nouvelle date selon le format souhaité
+    const formattedDate = this.formatDate(newWorkEnd);
 
     // Retourner la nouvelle date
-    return isoString;
+    return formattedDate;
   }
+
+// Fonction pour formater la date selon le modèle "YYYY-MM-DD HH:mm:ss"
+  private formatDate(date: Date): string {
+    const year = date.getFullYear();
+    const month = this.padNumber(date.getMonth() + 1); // Mois est 0-indexé, donc ajoutez 1
+    const day = this.padNumber(date.getDate());
+    const hours = this.padNumber(date.getHours());
+    const minutes = this.padNumber(date.getMinutes());
+    const seconds = this.padNumber(date.getSeconds());
+
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+  }
+
+// Fonction pour ajouter un zéro devant les chiffres < 10
+  private padNumber(num: number): string {
+    return num < 10 ? `0${num}` : `${num}`;
+  }
+
 
 
 

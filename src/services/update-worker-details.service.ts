@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UpdateWorkerDetailsService {
 
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'http://localhost:3000/coc';
 
   constructor(private http: HttpClient) { }
 
