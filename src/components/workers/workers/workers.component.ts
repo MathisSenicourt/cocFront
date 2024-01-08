@@ -63,8 +63,14 @@ export class WorkersComponent {
   }
 
   updateWorkerDetails(worker: any): void {
-    const { days, hours, minutes } = worker;
-    console.log("worker = "+worker)
+    let { days, hours, minutes, context } = worker;
+    if (!context) {
+      console.error('Le champ "context" est obligatoire.');
+      return;
+    }
+    if (!days)days=0
+    if (!hours)hours=0
+    if (!minutes)minutes=0
     const newWorkEnd = this.calculateNewWorkEnd(days, hours, minutes);
     const newWorkContext = worker.context;  // Ajoutez ceci si vous avez également un champ 'context'
 

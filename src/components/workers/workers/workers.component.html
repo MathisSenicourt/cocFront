@@ -11,16 +11,16 @@
           <p>{{ worker.worker_id }}</p>
 
           <label for="days">context:</label>
-          <input type="text" id="context" name="context" [(ngModel)]="worker.context" placeholder="rien">
+          <input type="text" id="context" name="context" [(ngModel)]="worker.context">
 
           <label for="days">Jours:</label>
-          <input type="number" id="days" name="days" min="0" [(ngModel)]="worker.days" placeholder="0" [defaultValue]="0">
+          <input type="number" id="days" name="days" min="0" [(ngModel)]="worker.days" placeholder="0">
 
           <label for="hours">Heures:</label>
-          <input type="number" id="hours" name="hours" min="0" max="23" [(ngModel)]="worker.hours" placeholder="0" [defaultValue]="0">
+          <input type="number" id="hours" name="hours" min="0" max="23" [(ngModel)]="worker.hours" placeholder="0">
 
           <label for="minutes">Minutes:</label>
-          <input type="number" id="minutes" name="minutes" min="0" max="59" [(ngModel)]="worker.minutes" placeholder="0" [defaultValue]="0">
+          <input type="number" id="minutes" name="minutes" min="0" max="59" [(ngModel)]="worker.minutes" placeholder="0">
 
           <button (click)="updateWorkerDetails(worker)">Mettre à jour</button>
         </div>
