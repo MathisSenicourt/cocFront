@@ -58,35 +58,35 @@ p{
 }
 
 .builderMain {
-  background: url('../../../../media/workers/builderMain.webp');
+  background: url('assets/media/workers/builderMain.webp');
   background-size: cover;
   width: 30px;
   height: 30px;
 }
 
 .labMain {
-  background: url('../../../../media/workers/labMain.webp');
+  background: url('assets/media/workers/labMain.webp');
   background-size: cover;
   width: 30px;
   height: 30px;
 }
 
 .petMain {
-  background: url('../../../../media/workers/pet.webp');
+  background: url('assets/media/workers/pet.webp');
   background-size: cover;
   width: 30px;
   height: 30px;
 }
 
 .builderBuilder {
-  background: url('../../../../media/workers/builderBuilder.webp');
+  background: url('assets/media/workers/builderBuilder.webp');
   background-size: cover;
   width: 30px;
   height: 30px;
 }
 
 .labBuilder {
-  background: url('../../../../media/workers/labBuilder.webp');
+  background: url('assets/media/workers/labBuilder.webp');
   background-size: cover;
   width: 30px;
   height: 30px;
