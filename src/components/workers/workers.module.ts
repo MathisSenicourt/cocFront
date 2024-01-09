@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { WorkersComponent } from './workers/workers.component';
+import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms';
+import { WorkersGlobalComponent } from './workers-global/workers-global.component';
 
 
 @NgModule({
   declarations: [
-    WorkersComponent
+    WorkersGlobalComponent
   ],
   exports: [
-    WorkersComponent
+    WorkersGlobalComponent
   ],
   imports: [
     CommonModule,

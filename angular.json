@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "cocFront:build:production"
+              "browserTarget": "cocFront:build:production"
             },
             "development": {
-              "buildTarget": "cocFront:build:development"
+              "browserTarget": "cocFront:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "cocFront:build"
+            "browserTarget": "cocFront:build"
           }
         },
         "test": {

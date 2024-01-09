@@ -3,11 +3,11 @@ import { WorkersListService } from '../../../services/workers-list.service';
 import { UpdateWorkerDetailsService } from '../../../services/update-worker-details.service';
 
 @Component({
-  selector: 'app-workers',
-  templateUrl: './workers.component.html',
-  styleUrls: ['./workers.component.css']
+  selector: 'app-workers-global',
+  templateUrl: './workers-global.component.html',
+  styleUrls: ['./workers-global.component.css']
 })
-export class WorkersComponent {
+export class WorkersGlobalComponent {
   workers: any = { data: [] };
   currentDate: Date;
 
@@ -122,8 +122,5 @@ export class WorkersComponent {
   private padNumber(num: number): string {
     return num < 10 ? `0${num}` : `${num}`;
   }
-
-
-
 
 }
