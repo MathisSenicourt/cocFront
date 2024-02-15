@@ -1,0 +1,11 @@
+<div class="login-container">
+  <h2>Connexion</h2>
+  <div class="form-group">
+    <label for="username">Login :</label>
+    <input type="text" id="username" name="username" [(ngModel)]="loginValue">
+
+    <label for="password">Password :</label>
+    <input type="text" id="password" name="password" [(ngModel)]="passwordValue">
+  </div>
+  <button (click)="login()">Connexion</button>
+</div>
